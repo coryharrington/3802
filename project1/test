@@ -1,0 +1,26 @@
+#!/bin/bash
+
+run() {
+    echo running executable  ...
+    ./test-bessel \
+    $(cat bessels.txt | awk '{print $1}' | grep -v X) \
+    $(cat bessels.txt | awk '{print $2}' | grep -v "JO(X)") \
+    $(cat bessels.txt | awk '{print $3}' | grep -v "Y0(X)")
+}
+
+EXISTS=$(ls | grep test-bessel | grep -v .cpp)
+if [[ -z $EXISTS ]]; then
+    echo Will be moved to makefile, but just has basic scripting
+    echo g++ compiling...
+    g++ test-bessel.cpp -o test-bessel -lm
+    cat test-bessel.cpp > .bessel
+    run
+else
+    UPDATE=$(diff .bessel test-bessel.cpp)
+    if [[ -n $UPDATE ]]; then
+        rm .bessel test-bessel
+        ./test
+    else
+        run
+    fi
+fi
