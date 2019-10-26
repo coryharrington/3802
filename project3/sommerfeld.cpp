@@ -145,13 +145,13 @@ int main(int argc, char **argv)
     {
         double k = wave_number(f);
         complex<double> a_result = sommerfeld_identity_analytic(k, params[3]);
-        complex<double> moe_result = method_of_exhastion(12, 0, k, k, params[3], integrand) + method_of_exhastion(12, k, 100 * k, k, params[3], integrand);
-        complex<double> rom_result = rhomberg_iteration(8, 4, 0, 100 * k, k, params[3], integrand);
+        complex<double> moe_result = method_of_exhastion(12, 0, k, k, params[3], integrand) + method_of_exhastion(12, k, 50 * k, k, params[3], integrand);
+        complex<double> rom_result = rhomberg_iteration(8, 4, 0, 50 * k, k, params[3], integrand);
         double error1 = std::abs(a_result - moe_result);
         double error2 = std::abs(a_result - rom_result);
         // Write results to file
         moe_out << f << "," << moe_result << "," << a_result << "," << k << "," << params[3] << "," << error1 / std::abs(a_result) << "\n";
-        rom_out << k << "," << rom_result << "," << a_result << "," << k << "," << params[3] << "," << error2 / std::abs(a_result) << "\n";
+        rom_out << f << "," << rom_result << "," << a_result << "," << k << "," << params[3] << "," << error2 / std::abs(a_result) << "\n";
         string win;
         if(error1 > error2)
             win1++;
