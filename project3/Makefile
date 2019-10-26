@@ -3,6 +3,6 @@ CMAKE_CPPFLAGS += -Wno-c++11-extensions
 
 all : sommerfeld
 sommerfeld: sommerfeld.cpp
-	g++ $(CMAKE_CPPFLAGS) -o summerfeld summerfeld.cpp -O 3
+	g++ $(CMAKE_CPPFLAGS) -o sommerfeld sommerfeld.cpp
 clean:
 	rm -rf sommerfeld
