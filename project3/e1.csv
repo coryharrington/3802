@@ -1,4 +1,4 @@
-Frequency, Aproximate, Analytical, Wave Number, Radial distance, Percent abs(z) error
+Frequency, Aproximate Re, Aproximate Im, Analytical Re, Analytical Im, Wave Number, Radial distance, Percent abs(z) error
 10000,(-6.85315e-05,-8.59926e-05),(-5.01255e-05,-8.653e-05),0.000209585,10000,0.184139
 12000,(-0.000107268,-5.85272e-05),(-8.10038e-05,-5.86377e-05),0.000251501,10000,0.262644
 14000,(-0.000122191,-2.0966e-05),(-9.78568e-05,-2.05926e-05),0.000293418,10000,0.243373
