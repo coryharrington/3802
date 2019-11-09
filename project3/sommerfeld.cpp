@@ -120,7 +120,7 @@ int main(int argc, char **argv)
     std::string::size_type sz;
     for(int i = 1; i < argc; i++)
     {
-        const char *str = argv[i];
+        const char *str = argv[i];  
         params[i - 1] = std::stod(str, &sz);
     }
     if(params[0] >= params[2] - params[1])
