@@ -127,7 +127,6 @@ void rk4(double h, double t0, double y0, function<double(double)> a, function<do
         k2 = h * f(t_n + (h/2), y_n + (k1/2));
         k3 = h * f(t_n + (h/2), y_n + (k2/2));
         k4 = h * f(t_n + h, y_n + k3);
-        //cout << "k1 " << k1 << " k2 " << k2 << " k3 " << k3 << " k4 " << k4 << '\n';
         table[n] = make_tuple(t_n, y_n, f_n, y_n + (1/6)*(k1 + 2*k2 + 2*k3 + k4));
         double ase = pow(a(get<0>(table[n])) - get<1>(table[n]), 2);
         sum += ase;
